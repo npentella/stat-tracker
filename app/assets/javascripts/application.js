@@ -12,5 +12,58 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+
+(function() {
+	var app = angular.module("cats", [ ])
+	app.controller("Cats", ['$http', function($http) {
+		
+		var cats = this;
+		cats.players = [ ]
+		$http.get('/players.json').success(function(data) {
+			cats.players = data;
+		});
+
+		this.addStat = function(player, category) {
+			player[category] += 1;
+		};
+
+		this.minusStat = function(player, category) {
+			if (player[category]) {
+				player[category] -= 1;
+			}
+		};
+
+		this.save = function() {
+			$http.put('/players', cats.players)
+		}
+	}]);
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
