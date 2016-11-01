@@ -4,7 +4,12 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    @q = Player.ransack(params[:q])
+    @players = @q.result(distinct: true)
+  end
+
+  def webapp
+    
   end
 
   # GET /players/1
@@ -54,7 +59,13 @@ class PlayersController < ApplicationController
   def mass_update
     params['_json'].each do |player_data|
       player = Player.find_by(name: player_data['name'])
-      player.update_attributes(player_data)
+      player.points = player_data["points"]
+      player.rebounds = player_data["rebounds"]
+      player.assists = player_data["assists"]
+      player.blocks = player_data["blocks"]
+      player.steals = player_data["steals"]
+      player.fouls = player_data["fouls"]
+      player.save
     end
   end
 

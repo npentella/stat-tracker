@@ -37,7 +37,27 @@
 
 		this.save = function() {
 			$http.put('/players', cats.players)
-		}
+		};
+
+		this.getTotal = function(category) {
+			var total = 0
+			for (var i = 0; i < cats.players.length; i++) {
+				total += cats.players[i][category];
+			}
+			return total
+		};
+
+		this.sortedBy = "number"
+		this.sortReverse = false;
+
+		this.sortBy = function(category) {
+			if (this.sortedBy === category) {
+				this.sortReverse = !this.sortReverse;
+			} else {
+				this.sortedBy = category;
+			}
+		};
+
 	}]);
 })();
 
