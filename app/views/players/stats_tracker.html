@@ -1,0 +1,74 @@
+<div ng-controller="Cats as cats">
+  <table class="table">
+    <thead>
+      <tr>
+        <th ng-click="cats.sortBy('name')">Name</th>
+        <th ng-click="cats.sortBy('number')">Number</th>
+        <th colspan="2" ng-click="cats.sortBy('points')">Points</th>
+        <th colspan="2" ng-click="cats.sortBy('rebounds')">Rebounds</th>
+        <th colspan="2" ng-click="cats.sortBy('assists')">Assists</th>
+        <th colspan="2" ng-click="cats.sortBy('blocks')">Blocks</th>
+        <th colspan="2" ng-click="cats.sortBy('steals')">Steals</th>
+        <th colspan="2" ng-click="cats.sortBy('fouls')">Fouls</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="player in cats.players | orderBy:cats.sortedBy:cats.sortReverse">
+        <td><a href="/players/{{ player.id }}">{{ player.name }}</a></td>
+        <td>{{ player.number }}</td>
+        <td>{{ player.points }}</td>
+        <td>
+          <div class="btn-group">
+            <button ng-click="cats.minusStat(player, 'points')" class="btn btn-default">-</button>
+            <button ng-click="cats.addStat(player, 'points')" class="btn btn-default">+</button>
+          </div>
+        </td>
+        <td>{{ player.rebounds }}</td>
+        <td>
+          <div class="btn-group">
+            <button ng-click="cats.minusStat(player, 'rebounds')" class="btn btn-default">-</button>
+            <button ng-click="cats.addStat(player, 'rebounds')" class="btn btn-default">+</button>
+          </div>
+        </td>
+        <td>{{ player.assists }}</td>
+        <td>
+          <div class="btn-group">
+            <button ng-click="cats.minusStat(player, 'assists')" class="btn btn-default">-</button>
+            <button ng-click="cats.addStat(player, 'assists')" class="btn btn-default">+</button>
+          </div>
+        </td>
+        <td>{{ player.blocks }}</td>
+        <td>
+          <div class="btn-group">
+            <button ng-click="cats.minusStat(player, 'blocks')" class="btn btn-default">-</button>
+            <button ng-click="cats.addStat(player, 'blocks')" class="btn btn-default">+</button>
+          </div>
+        </td>
+        <td>{{ player.steals }}</td>
+        <td>
+          <div class="btn-group">
+            <button ng-click="cats.minusStat(player, 'steals')" class="btn btn-default">-</button>
+            <button ng-click="cats.addStat(player, 'steals')" class="btn btn-default">+</button>
+          </div>
+        </td>
+        <td>{{ player.fouls }}</td>
+        <td>
+          <div class="btn-group">
+            <button ng-click="cats.minusStat(player, 'fouls')" class="btn btn-default">-</button>
+            <button ng-click="cats.addStat(player, 'fouls')" class="btn btn-default">+</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <th colspan="2">TOTALS</th>
+      <th colspan="2">{{ cats.getTotal('points') }}</th>
+      <th colspan="2">{{ cats.getTotal('rebounds') }}</th>
+      <th colspan="2">{{ cats.getTotal('assists') }}</th>
+      <th colspan="2">{{ cats.getTotal('blocks') }}</th>
+      <th colspan="2">{{ cats.getTotal('steals') }}</th>
+      <th colspan="2">{{ cats.getTotal('fouls') }}</th>
+    </tfoot>
+  </table>
+  <button ng-click="cats.save()" id="save-stats">Save</button>
+</div>

@@ -4,7 +4,7 @@
 
 <%= search_form_for @q do |f| %>
 
-  <%= f.label :name_cont %>
+  <%= f.label "Search by name:" %>
   <%= f.search_field :name_cont %>
 
   <%= f.submit %>
@@ -45,6 +45,7 @@
 </table>
 
 <br>
-
-<%= link_to 'New Player', new_player_path %>
-<%= link_to 'Stat Tracker', root_path %>
+<nav>
+  <%= link_to 'New Player', new_player_path %>
+  <%= link_to 'Stat Tracker', root_path %>
+</nav>

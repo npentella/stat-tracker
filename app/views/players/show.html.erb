@@ -1,45 +1,43 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @player.name %></h1>
+<div class="player-card">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @player.name %>
-</p>
+  <p>
+    <strong>Number:</strong>
+    <%= @player.number %>
+  </p>
 
-<p>
-  <strong>Number:</strong>
-  <%= @player.number %>
-</p>
+  <p>
+    <strong>Points:</strong>
+    <%= @player.points %>
+  </p>
 
-<p>
-  <strong>Points:</strong>
-  <%= @player.points %>
-</p>
+  <p>
+    <strong>Rebounds:</strong>
+    <%= @player.rebounds %>
+  </p>
 
-<p>
-  <strong>Rebounds:</strong>
-  <%= @player.rebounds %>
-</p>
+  <p>
+    <strong>Assists:</strong>
+    <%= @player.assists %>
+  </p>
 
-<p>
-  <strong>Assists:</strong>
-  <%= @player.assists %>
-</p>
+  <p>
+    <strong>Blocks:</strong>
+    <%= @player.blocks %>
+  </p>
 
-<p>
-  <strong>Blocks:</strong>
-  <%= @player.blocks %>
-</p>
+  <p>
+    <strong>Steals:</strong>
+    <%= @player.steals %>
+  </p>
 
-<p>
-  <strong>Steals:</strong>
-  <%= @player.steals %>
-</p>
+  <p>
+    <strong>Fouls:</strong>
+    <%= @player.fouls %>
+  </p>
 
-<p>
-  <strong>Fouls:</strong>
-  <%= @player.fouls %>
-</p>
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Delete', player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+  <%= link_to 'Edit', edit_player_path(@player) %> |
+  <%= link_to 'Delete', player_path(@player) %> |
+  <%= link_to 'Back', players_path %>
+</div>
