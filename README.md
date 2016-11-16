@@ -1,24 +1,6 @@
-# README
+# Big Blue Stat Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+By Nick Pentella
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Purpose
+A simple rails application that lets a user keep track of statistics during a basketball game.  Intended as a sandbox to explore Angular and Rails.
